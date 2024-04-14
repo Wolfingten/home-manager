@@ -1,0 +1,23 @@
+(defwidget greeter [?text]
+  (box :orientation "horizontal"
+       :halign "left"
+    text
+    ))
+
+(defpoll time :interval "100000s"
+              :initial "initial-value"  ; optional, defaults to poll at startup
+              :run-while time-visible   ; optional, defaults to 'true'
+  `cat /home/wolfingten/.sync/Obsidian/Brainz/to-do/to-do.md`)
+
+(defwindow example
+           :monitor 0
+           :geometry (geometry :x "5%"
+                               :y "10%"
+                               :width "25%"
+                               :height "80%"
+                               :anchor "top left")
+           :stacking "bg"
+           :windowtype "desktop"
+           :wm-ignore false
+    (greeter :text time))
+

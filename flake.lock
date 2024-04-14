@@ -1,0 +1,116 @@
+{
+  "nodes": {
+    "codeium-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712034362,
+        "narHash": "sha256-I6Ev2m2WXhU3f2hXgjjmPhM2daoTyyScQZ+Oj0DgMB4=",
+        "owner": "Exafunction",
+        "repo": "codeium.vim",
+        "rev": "31dd2962c81759be007895db6ce089feec397c86",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Exafunction",
+        "repo": "codeium.vim",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1713019815,
+        "narHash": "sha256-jzTo97VeKMNfnKw3xU+uiU5C7wtnLudsbwl/nwPLC7s=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "8fdf329526f06886b53b94ddf433848a0d142984",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "jupytext-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712342824,
+        "narHash": "sha256-LBBRZOSqn70qruSA/vbPMTzS7y05F/z4EqC+5JlU6NM=",
+        "owner": "GCBallesteros",
+        "repo": "jupytext.nvim",
+        "rev": "c8baf3ad344c59b3abd461ecc17fc16ec44d0f7b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GCBallesteros",
+        "repo": "jupytext.nvim",
+        "type": "github"
+      }
+    },
+    "molten-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711917541,
+        "narHash": "sha256-PW2OlM1dE2gU8j6+i2TOxtCEci0uYFn/yBsPXsfmMnI=",
+        "owner": "benlubas",
+        "repo": "molten-nvim",
+        "rev": "66b11de7c3132dcc4521d50039ce2b5f81e64ca2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "benlubas",
+        "repo": "molten-nvim",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1712791164,
+        "narHash": "sha256-3sbWO1mbpWsLepZGbWaMovSO7ndZeFqDSdX0hZ9nVyw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1042fd8b148a9105f3c0aca3a6177fd1d9360ba5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "obsidian-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712778222,
+        "narHash": "sha256-jjsDXGdFMgdalgkw8HSY3+EfiTkYotsNA6txk1/09VY=",
+        "owner": "epwalsh",
+        "repo": "obsidian.nvim",
+        "rev": "1265a1fbfca5979f629ecedb2552f743c70f458f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "epwalsh",
+        "repo": "obsidian.nvim",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "codeium-vim": "codeium-vim",
+        "home-manager": "home-manager",
+        "jupytext-nvim": "jupytext-nvim",
+        "molten-nvim": "molten-nvim",
+        "nixpkgs": "nixpkgs",
+        "obsidian-nvim": "obsidian-nvim"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
