@@ -23,8 +23,9 @@
   };
 
   imports = [
-    ./modules/neovim/default.nix
+    ./modules/nvim/default.nix
     ./modules/tmux/default.nix
+    ./modules/r/default.nix
   ]; # import nix modules
 
   # The home.packages option allows you to install Nix packages into your

@@ -1,7 +1,7 @@
 { lib, config, pkgs, inputs, ... }: {
 
   imports = [
-    ./configs/editorconfig.nix
+    ./../editorconfig/default.nix
   ]; # import other modules here
 
   options = {
@@ -20,13 +20,21 @@
                name = "jupytext-nvim";
                src = inputs.jupytext-nvim;
              };
-             codeium-vim = prev.vimUtils.buildVimPlugin {
-               name = "codeium-vim";
-               src = inputs.codeium-vim;
+#             codeium-vim = prev.vimUtils.buildVimPlugin {
+#               name = "codeium-vim";
+#               src = inputs.codeium-vim;
+#             };
+#             molten-nvim = prev.vimUtils.buildVimPlugin {
+#               name = "molten-nvim";
+#               src = inputs.molten-nvim;
+#             };
+             r-nvim = prev.vimUtils.buildVimPlugin {
+               name = "r-nvim";
+               src = inputs.r-nvim;
              };
-             molten-nvim = prev.vimUtils.buildVimPlugin {
-               name = "molten-nvim";
-               src = inputs.molten-nvim;
+             notebookNavigator-nvim = prev.vimUtils.buildVimPlugin {
+               name = "notebookNavigator-nvim";
+               src = inputs.notebookNavigator-nvim;
              };
            };
          })
@@ -34,7 +42,7 @@
      };
    programs.neovim = {
       enable = true;
-#      extraLuaConfig = (builtins.readFile ./configs/neovim.lua);
+      extraLuaConfig = (builtins.readFile ./configs/settings.lua);
       extraPackages = with pkgs; [
         # optional dependencies for telescope-nvim
         ripgrep
@@ -58,6 +66,9 @@
             vimdoc
             nix
             markdown
+            markdown_inline
+            r
+            rnoweb
           ]);
           type = "lua";
           config = builtins.readFile(./configs/treesitter.lua);
@@ -88,6 +99,8 @@
           type = "lua";
           config = (builtins.readFile ./configs/molten.lua);
         }
+#        iron-nvim
+#        toggleterm-nvim
         {
           plugin = jupytext-nvim;
           type = "lua";
@@ -104,6 +117,19 @@
           config = (builtins.readFile ./configs/onedark.lua);
         }
         codeium-vim
+        r-nvim
+        {
+          plugin = notebookNavigator-nvim;
+          type = "lua";
+          config = (builtins.readFile ./configs/notebookNavigator.lua);
+        }
+        hydra-nvim
+#        {
+#          plugin = quarto-nvim;
+#          type = "lua";
+#          config = (builtins.readFile ./configs/quarto.lua);
+#        }
+#        otter-nvim
       ];
     };
   };

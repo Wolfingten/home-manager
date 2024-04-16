@@ -4,5 +4,4 @@ require('onedark').setup({
 
 require('onedark').load()
 
-vim.o.termguicolors = true
 vim.cmd'colorscheme onedark'

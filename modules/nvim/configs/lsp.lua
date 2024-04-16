@@ -1,5 +1,3 @@
-vim.opt.signcolumn = "yes:1" -- always show sign column to avoid screen shift
-
 local lspconfig = require('lspconfig')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 

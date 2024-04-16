@@ -6,7 +6,3 @@ require("obsidian").setup({
     },
   },
 })
-
-vim.opt.conceallevel = 1
-
-
