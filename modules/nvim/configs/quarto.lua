@@ -2,7 +2,7 @@ local quarto = require("quarto")
 quarto.setup({
     lspFeatures = {
         -- NOTE: put whatever languages you want here:
-        languages = { "r", "python", "rust" },
+        languages = { "r", "python" },
         chunks = "all",
         diagnostics = {
             enabled = true,
@@ -22,6 +22,6 @@ quarto.setup({
     },
     codeRunner = {
         enabled = true,
-        default_method = "molten",
+        default_method = "slime",
     },
 })

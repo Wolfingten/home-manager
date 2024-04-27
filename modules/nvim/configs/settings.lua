@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-vim.g.python3_host_prog=vim.fn.expand("~/.python_environments/NVIM/bin/python3")
+--vim.g.python3_host_prog=vim.fn.expand("~/.python_environments/NVIM/bin/python3")
 
 vim.opt.signcolumn = "yes:1" -- always show sign column to avoid screen shift
 

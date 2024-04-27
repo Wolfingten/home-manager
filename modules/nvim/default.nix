@@ -20,37 +20,53 @@
                name = "jupytext-nvim";
                src = inputs.jupytext-nvim;
              };
-#             codeium-vim = prev.vimUtils.buildVimPlugin {
-#               name = "codeium-vim";
-#               src = inputs.codeium-vim;
+#            r-nvim = prev.vimUtils.buildVimPlugin {
+#               name = "r-nvim";
+#               src = inputs.r-nvim;
 #             };
-#             molten-nvim = prev.vimUtils.buildVimPlugin {
-#               name = "molten-nvim";
-#               src = inputs.molten-nvim;
+#             notebookNavigator-nvim = prev.vimUtils.buildVimPlugin {
+#               name = "notebookNavigator-nvim";
+#               src = inputs.notebookNavigator-nvim;
 #             };
-             r-nvim = prev.vimUtils.buildVimPlugin {
-               name = "r-nvim";
-               src = inputs.r-nvim;
-             };
-             notebookNavigator-nvim = prev.vimUtils.buildVimPlugin {
-               name = "notebookNavigator-nvim";
-               src = inputs.notebookNavigator-nvim;
-             };
            };
          })
        ];
      };
    programs.neovim = {
       enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      withPython3 = true;
       extraLuaConfig = (builtins.readFile ./configs/settings.lua);
+      extraPython3Packages = pyPkgs: with pyPkgs; [
+        pynvim
+        # jupytetx dependency
+        jupytext
+        # molten dependencies
+        jupyter-client
+        cairosvg
+        pnglatex
+        plotly
+#        kaleido #not available in nixpkgs
+        pyperclip
+        nbformat
+        pillow
+      ];
       extraPackages = with pkgs; [
         # optional dependencies for telescope-nvim
         ripgrep
         fd
+        # image rendering for molten-nvim
+        imagemagick
         # langauge servers
         pyright
         nil
         lua-language-server
+      ];
+      extraLuaPackages = with pkgs; [
+        # image rendering for molten-nvim
+        magick
       ];
       plugins = with pkgs.vimPlugins; [
       ### syntax highlighting
@@ -99,6 +115,7 @@
           type = "lua";
           config = (builtins.readFile ./configs/molten.lua);
         }
+        image-nvim
 #        iron-nvim
 #        toggleterm-nvim
         {
@@ -117,19 +134,25 @@
           config = (builtins.readFile ./configs/onedark.lua);
         }
         codeium-vim
-        r-nvim
-        {
-          plugin = notebookNavigator-nvim;
-          type = "lua";
-          config = (builtins.readFile ./configs/notebookNavigator.lua);
-        }
-        hydra-nvim
+#        r-nvim
 #        {
-#          plugin = quarto-nvim;
+#          plugin = notebookNavigator-nvim;
 #          type = "lua";
-#          config = (builtins.readFile ./configs/quarto.lua);
+#          config = (builtins.readFile ./configs/notebookNavigator.lua);
 #        }
-#        otter-nvim
+#        hydra-nvim
+
+        {
+          plugin = quarto-nvim;
+          type = "lua";
+          config = (builtins.readFile ./configs/quarto.lua);
+        }
+        otter-nvim
+        {
+          plugin = vim-slime;
+          type = "lua";
+          config = (builtins.readFile ./configs/slime.lua);
+        }
       ];
     };
   };
