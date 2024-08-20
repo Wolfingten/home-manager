@@ -25,7 +25,7 @@
   imports = [
     ./modules/nvim/default.nix
     ./modules/tmux/default.nix
-    ./modules/r/default.nix
+#    ./modules/r/default.nix
   ]; # import nix modules
 
   # The home.packages option allows you to install Nix packages into your
@@ -49,9 +49,10 @@
     # '')
 
     eww
-    htop
     zoxide
+    thefuck
     quarto
+    mullvad-browser
     ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

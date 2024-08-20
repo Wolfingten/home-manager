@@ -64,10 +64,10 @@
         nil
         lua-language-server
       ];
-      extraLuaPackages = with pkgs; [
-        # image rendering for molten-nvim
-        magick
-      ];
+#      extraLuaPackages = with pkgs; [
+#        # image rendering for molten-nvim
+#        magick
+#      ];
       plugins = with pkgs.vimPlugins; [
       ### syntax highlighting
       # home-manager example: https://git.daniel-siepmann.de/danielsiepmann/nixpkgs/src/branch/main/hom  e/programs/neovim.nix
@@ -85,6 +85,7 @@
             markdown_inline
             r
             rnoweb
+            yuck
           ]);
           type = "lua";
           config = builtins.readFile(./configs/treesitter.lua);
